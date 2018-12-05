@@ -6,8 +6,7 @@ const handleUpdate = require("./extension/handleUpdate");
 
 function activate(context) {
     const getPath = p => path.join(context.extensionPath, '/pane/dist/build/', p);
-
-    let htmlString = "";
+    
     let subscriptions = [];
 
     context.subscriptions.push(vscode.commands.registerCommand('morphPlayground.start', function () {
@@ -18,10 +17,7 @@ function activate(context) {
                 enableScripts: true
             });
 
-        fs.readFile(getPath('index.html'), 'utf8', (err, html) => {
-            htmlString = html;
-            pane.webview.html = html;
-        });
+        fs.readFile(getPath('index.html'), 'utf8', (err, html) => pane.webview.html = html);
 
         vscode.window.onDidChangeTextEditorSelection(() => handleUpdate(vscode.window, pane, htmlString), this, subscriptions);
         vscode.window.onDidChangeActiveTextEditor(() => handleUpdate(vscode.window, pane, htmlString), this, subscriptions);
