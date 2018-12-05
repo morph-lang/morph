@@ -1,0 +1,39 @@
+{
+    "name": "morph-playground",
+    "displayName": "morph-playground",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.29.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:morphPlayground.start"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "morphPlayground.start",
+                "title": "Start Morph playground"
+            }
+        ]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^3.1.4",
+        "vscode": "^1.1.21",
+        "eslint": "5.6.0",
+        "@types/node": "^8.10.25",
+        "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "@morphx/morph-tree-builder": "^1.0.0",
+        "vscode-uri": "^1.0.6"
+    }
+}
