@@ -8,7 +8,7 @@ When writing in morph your feature set changes based on your name and what files
 
 when you import a morph file ie
 
-`
+```
 files in dir
 
 myComponent.dom.morph
@@ -29,13 +29,13 @@ it checks to see if there is a myComponent.htl.morph so it uses that.
 compiling to reactNative:
 it checks to see if there a reactNative, there isnt and it keep checking till it gets to myComponent.morph, if this wasnt here it would throw an error that it couldnt build to reactNative do to missing reactNative.
 
-`
+
 
 current Hierarchy
 
 htl -> dom -> primatives -> root
 react --^       ^
 react-native ---^
-
+```
 
 Morph is going to have a very strict built in linter. This is because morph code is design to be edited by external editors and be read by different dev tools.
